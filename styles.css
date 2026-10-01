@@ -1,4 +1,182 @@
-/* This is your CSS files */
+/* ==========================================================================
+   Task Manager - INFO 153A/253A Assignment 1
+   Layout method: CSS Grid (page layout and component alignment)
+   ========================================================================== */
+
+/* ========== BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --header-bg: #dc4c3e;
+    --header-text: #ffffff;
+    --sidebar-bg: #fefbf2;
+    --sidebar-text: #000000;
+    --count-color: #7e7d79;
+    --border-color: #eceae4;
+    --sidebar-width: 300px;
+}
+
 body {
-    color: black
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--sidebar-text);
+    background: #ffffff;
+
+    /* Page layout: header across the top, 300px sidebar, flexible main area */
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header  header"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+/* Shared icon sizing */
+.icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Accessible label that stays off-screen */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ========== HEADER ========== */
+.app-header {
+    grid-area: header;
+    background: var(--header-bg);
+    color: var(--header-text);
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 20px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.quick-find {
+    justify-self: start;
+    width: 100%;
+    max-width: 420px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.quick-find-input {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--header-text);
+}
+
+.quick-find-input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.quick-find-input:focus {
+    outline: none;
+}
+
+.task-counter {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+/* ========== LEFT NAVIGATION ========== */
+.sidebar {
+    grid-area: sidebar;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px 12px;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-link {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--sidebar-text);
+}
+
+.sidebar-link.is-active {
+    background: #ffffff;
+    font-weight: 700;
+}
+
+.task-count {
+    font-size: 12px;
+    color: var(--count-color);
+    font-weight: 400;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+    grid-area: main;
+    padding: 32px 40px;
+}
+
+.task-section {
+    max-width: 700px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    /* Visual separation between tasks lives in CSS, not in the markup */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.task-label {
+    cursor: pointer;
 }
