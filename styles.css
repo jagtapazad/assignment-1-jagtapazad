@@ -180,3 +180,47 @@ body {
 .task-label {
     cursor: pointer;
 }
+
+/* ========== CIRCULAR CHECKBOXES (CSS only, no images) ========== */
+.task-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c8c6c0;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.task-checkbox:hover {
+    border-color: var(--header-bg);
+}
+
+.task-checkbox:checked {
+    background: var(--header-bg);
+    border-color: var(--header-bg);
+}
+
+.task-checkbox:focus-visible {
+    outline: 2px solid var(--header-bg);
+    outline-offset: 2px;
+}
+
+/* ========== RESPONSIVE: hide left navigation at 480px or less ========== */
+@media (max-width: 480px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 24px 20px;
+    }
+}
