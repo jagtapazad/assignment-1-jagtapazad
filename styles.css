@@ -44,13 +44,15 @@ body {
     display: block;
 }
 
-/* Accessible label that stays off-screen */
+/* Accessible label: available to screen readers, not visible on screen */
 .visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
     overflow: hidden;
-    clip: rect(0 0 0 0);
     white-space: nowrap;
 }
 
@@ -171,10 +173,17 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 14px;
-    padding: 12px 0;
-    /* Visual separation between tasks lives in CSS, not in the markup */
-    border-bottom: 1px solid var(--border-color);
+    /* no row gap: the divider is spaced with its own margin */
+    gap: 0 14px;
+    padding-top: 12px;
+}
+
+/* Horizontal rule separating each task, spanning the full row */
+.task-divider {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    border: none;
+    border-top: 1px solid var(--border-color);
 }
 
 .task-label {
