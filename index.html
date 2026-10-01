@@ -1,9 +1,92 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Link your CSS file and other references here -->
-    </head>
-    <body>
-        <!-- Content goes here -->
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <!-- Roboto, used site-wide -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="app-header">
+        <button type="button" class="menu-button" aria-label="Open menu">
+            <img src="assets/menu_icon.png" alt="" class="icon">
+        </button>
+
+        <form class="quick-find" role="search">
+            <label for="quick-find-input" class="visually-hidden">Quick find</label>
+            <img src="assets/search_icon.png" alt="" class="icon">
+            <input type="search" id="quick-find-input" name="q" class="quick-find-input" placeholder="Quick find">
+        </form>
+
+        <p class="task-counter">
+            <img src="assets/check_icon.png" alt="Completed tasks" class="icon">
+            30/5
+        </p>
+    </header>
+
+    <!-- ========== LEFT NAVIGATION ========== -->
+    <nav class="sidebar" aria-label="Task categories">
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="#inbox" class="sidebar-link is-active" aria-current="page">
+                    <img src="assets/inbox_icon.png" alt="" class="icon">
+                    <span class="sidebar-label">Inbox</span>
+                    <span class="task-count">5</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#today" class="sidebar-link">
+                    <img src="assets/calendar_icon.png" alt="" class="icon">
+                    <span class="sidebar-label">Today</span>
+                    <span class="task-count">5</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#upcoming" class="sidebar-link">
+                    <img src="assets/upcoming_icon.png" alt="" class="icon">
+                    <span class="sidebar-label">Upcoming</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+        <section id="inbox" class="task-section">
+            <h1 class="section-title">Inbox</h1>
+
+            <ul class="task-list">
+                <li class="task-item">
+                    <input type="checkbox" id="task-1" class="task-checkbox">
+                    <label for="task-1" class="task-label">Call Mom</label>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" id="task-2" class="task-checkbox">
+                    <label for="task-2" class="task-label">Buy the new issue of Scientific American</label>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" id="task-3" class="task-checkbox">
+                    <label for="task-3" class="task-label">Return the textbook to Josie</label>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" id="task-4" class="task-checkbox">
+                    <label for="task-4" class="task-label">Buy the new album by Rake</label>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" id="task-5" class="task-checkbox">
+                    <label for="task-5" class="task-label">Buy a gift card for Dad</label>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
 </html>
